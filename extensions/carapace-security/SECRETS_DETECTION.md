@@ -80,7 +80,7 @@ const result = scanOutput(output);
 ```typescript
 import { redactSecrets } from './src/secrets-scanner';
 
-const original = "export STRIPE_KEY=sk_live_abc123def456ghi789";
+const original = "export STRIPE_KEY=sk_live_EXAMPLEKEYNOTREAL00";
 const redacted = redactSecrets(original);
 // "export STRIPE_KEY=sk_l...[REDACTED:Stripe Live Secret Key]...hij789"
 ```
@@ -111,7 +111,7 @@ The security extension exposes HTTP API methods via OpenClaw's gateway for remot
 ```bash
 POST /api/carapace.security.secrets.scan
 {
-  "text": "API_KEY=sk_live_1234567890abcdefghijklmnop"
+  "text": "API_KEY=sk_live_EXAMPLEKEYNOTREAL00000000"
 }
 
 Response:
@@ -120,7 +120,7 @@ Response:
   "secretCount": 1,
   "secrets": [{
     "type": "Stripe Live Secret Key",
-    "match": "sk_live_1234567890abcdefghijklmnop",
+    "match": "sk_live_EXAMPLEKEYNOTREAL00000000",
     "redacted": "sk_l...[REDACTED:Stripe Live Secret Key]...mnop",
     "lineNumber": 1
   }],

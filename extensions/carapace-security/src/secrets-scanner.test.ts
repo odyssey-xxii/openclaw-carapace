@@ -30,14 +30,14 @@ describe("Secrets Scanner", () => {
     });
 
     it("should detect Slack tokens", () => {
-      const text = "xoxb-1234567890-1234567890-abcdefghijklmnopqrst";
+      const text = "xoxb-000000000000-000000000000-EXAMPLEEXAMPLEEXAMPLEEXAM";
       const matches = scanForSecrets(text);
       expect(matches.length).toBeGreaterThan(0);
       expect(matches.some((m: SecretMatch) => m.type.includes("Slack"))).toBe(true);
     });
 
     it("should detect Stripe keys", () => {
-      const text = "sk_live_1234567890abcdefghijklmnop";
+      const text = "sk_live_EXAMPLEKEYEXAMPLEKEYEXAMPL";
       const matches = scanForSecrets(text);
       expect(matches.length).toBeGreaterThan(0);
       expect(matches.some((m: SecretMatch) => m.type.includes("Stripe"))).toBe(true);
@@ -108,21 +108,21 @@ MIIEpAIBAAKCAQEA1234567890abcdef
 
   describe("redactSecrets", () => {
     it("should replace secrets with redaction string", () => {
-      const text = "My key is sk_live_1234567890abcdefghijklmnop";
+      const text = "My key is sk_live_EXAMPLEKEYEXAMPLEKEYEXAMPL";
       const redacted = redactSecrets(text);
       expect(redacted).not.toContain("1234567890abcdefghijklmnop");
       expect(redacted).toContain("[REDACTED");
     });
 
     it("should preserve surrounding context", () => {
-      const text = "export STRIPE_KEY=sk_live_1234567890abcdefghijklmnop";
+      const text = "export STRIPE_KEY=sk_live_EXAMPLEKEYEXAMPLEKEYEXAMPL";
       const redacted = redactSecrets(text);
       // Check that the beginning is preserved
       expect(redacted).toContain("export");
     });
 
     it("should handle multiple secrets", () => {
-      const text = "AWS: AKIA1234567890123456, Stripe: sk_live_1234567890abcdefghijklmnop";
+      const text = "AWS: AKIA1234567890123456, Stripe: sk_live_EXAMPLEKEYEXAMPLEKEYEXAMPL";
       const redacted = redactSecrets(text);
       expect(redacted).not.toContain("AKIA1234567890123456");
       expect(redacted).not.toContain("sk_live_");
@@ -146,7 +146,7 @@ MIIEpAIBAAKCAQEA1234567890abcdef
     });
 
     it("should count secrets by type", () => {
-      const text = "AKIA1234567890123456 and sk_live_1234567890abcdefghijklmnop";
+      const text = "AKIA1234567890123456 and sk_live_EXAMPLEKEYEXAMPLEKEYEXAMPL";
       const result = scanOutput(text);
       expect(result.secretsByType).toHaveProperty("AWS Access Key ID");
       expect(result.secretsByType).toHaveProperty("Stripe Live Secret Key");
@@ -209,7 +209,7 @@ export DATABASE_URL=postgres://user:pass@localhost:5432/db`;
 
     it("should handle JSON with secrets", () => {
       const text = JSON.stringify({
-        apiKey: "sk_live_1234567890abcdefghijklmnop",
+        apiKey: "sk_live_EXAMPLEKEYEXAMPLEKEYEXAMPL",
         token: "ghp_1234567890123456789012345678901234",
       });
 
