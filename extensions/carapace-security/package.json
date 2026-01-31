@@ -1,0 +1,19 @@
+{
+  "name": "@carapace/security",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Carapace 3-tier security classification and audit plugin for OpenClaw",
+  "dependencies": {
+    "@carapace/shared": "workspace:*",
+    "anthropic": "^0.35.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "openclaw": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

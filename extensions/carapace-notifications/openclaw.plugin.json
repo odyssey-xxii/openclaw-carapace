@@ -1,0 +1,30 @@
+{
+  "id": "carapace-notifications",
+  "name": "Carapace Notifications",
+  "description": "User notification system with multi-channel delivery, quiet hours, and offline queuing",
+  "version": "1.0.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "defaultChannels": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Default notification channels (e.g., 'discord', 'slack', 'telegram')",
+        "default": ["discord"]
+      },
+      "maxQueueSize": {
+        "type": "integer",
+        "description": "Maximum number of notifications to queue when user is offline",
+        "default": 100
+      },
+      "retentionDays": {
+        "type": "integer",
+        "description": "How many days to retain queued notifications",
+        "default": 7
+      }
+    }
+  }
+}

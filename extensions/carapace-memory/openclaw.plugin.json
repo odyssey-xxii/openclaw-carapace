@@ -1,0 +1,17 @@
+{
+  "id": "carapace-memory",
+  "name": "carapace-memory",
+  "version": "1.0.0",
+  "type": "extension",
+  "description": "Persistent memory for Carapace agents",
+  "entry": "dist/index.js",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "capabilities": {
+    "memory": true,
+    "hooks": ["before_agent_start", "session_end"]
+  }
+}

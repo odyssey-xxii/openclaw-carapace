@@ -1,0 +1,17 @@
+{
+  "name": "@openclaw/carapace-analytics",
+  "version": "2026.1.30",
+  "type": "module",
+  "description": "Usage analytics for Carapace dashboard",
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1500.0"
+  },
+  "devDependencies": {
+    "openclaw": "workspace:*"
+  }
+}

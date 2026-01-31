@@ -1,0 +1,64 @@
+{
+  "id": "carapace-core",
+  "name": "Carapace Core",
+  "version": "1.0.0",
+  "description": "Core services for Carapace multi-tenant operation",
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "s3": {
+        "type": "object",
+        "description": "AWS S3 configuration for persistence",
+        "properties": {
+          "region": {
+            "type": "string",
+            "description": "AWS region",
+            "default": "us-east-1"
+          },
+          "bucket": {
+            "type": "string",
+            "description": "S3 bucket name for user data storage"
+          },
+          "accessKeyId": {
+            "type": "string",
+            "description": "AWS access key ID"
+          },
+          "secretAccessKey": {
+            "type": "string",
+            "description": "AWS secret access key",
+            "sensitive": true
+          }
+        },
+        "required": ["bucket"]
+      },
+      "encryption": {
+        "type": "object",
+        "description": "Encryption configuration for sensitive data",
+        "properties": {
+          "encryptionKey": {
+            "type": "string",
+            "description": "Base64-encoded encryption key for channel credentials",
+            "sensitive": true
+          },
+          "algorithm": {
+            "type": "string",
+            "description": "Encryption algorithm",
+            "default": "aes-256-cbc"
+          }
+        }
+      }
+    },
+    "required": ["s3"]
+  },
+  "exports": {
+    "services": {
+      "S3Client": "Singleton S3 client for object storage",
+      "UserDataService": "User profile and platform account management",
+      "SettingsManager": "Per-user settings and subscription management"
+    },
+    "methods": {
+      "carapace.user.profile": "Get or create user profile",
+      "carapace.user.settings": "Get or update user settings"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@carapace/core",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Carapace core services - settings, S3, user data",
+  "main": "index.ts",
+  "openclaw": {
+    "extensions": ["./index.ts"]
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0"
+  },
+  "peerDependencies": {
+    "openclaw": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

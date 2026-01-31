@@ -1,0 +1,20 @@
+{
+  "id": "carapace-cron",
+  "name": "carapace-cron",
+  "version": "1.0.0",
+  "type": "extension",
+  "description": "Scheduled tasks for Carapace agents",
+  "entry": "dist/index.js",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "capabilities": {
+    "scheduling": [
+      "cron",
+      "one-time",
+      "recurring"
+    ]
+  }
+}

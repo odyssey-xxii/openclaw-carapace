@@ -1,0 +1,21 @@
+{
+  "id": "carapace-channels",
+  "name": "carapace-channels",
+  "version": "1.0.0",
+  "type": "extension",
+  "description": "Channel bridges for Carapace dashboard",
+  "entry": "dist/index.js",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  },
+  "capabilities": {
+    "channels": [
+      "telegram",
+      "discord",
+      "slack",
+      "whatsapp"
+    ]
+  }
+}

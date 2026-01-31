@@ -1,0 +1,13 @@
+{
+  "name": "@carapace/channel-manager",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Multi-tenant channel manager utility for Carapace",
+  "main": "index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "dependencies": {
+    "@carapace/shared": "file:../../../shared"
+  }
+}

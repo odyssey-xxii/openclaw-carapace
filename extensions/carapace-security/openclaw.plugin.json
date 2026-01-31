@@ -1,0 +1,47 @@
+{
+  "id": "carapace-security",
+  "name": "Carapace Security Plugin",
+  "description": "3-tier security classification (Green/Yellow/Red) for shell commands with LLM-powered audit, approval workflow, and logging",
+  "version": "1.0.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enableLLMAudit": {
+        "type": "boolean",
+        "description": "Enable LLM-based classification for edge cases"
+      },
+      "approvalTimeoutSeconds": {
+        "type": "integer",
+        "description": "Timeout for in-channel approval requests in seconds",
+        "default": 300
+      },
+      "auditLogStorage": {
+        "type": "string",
+        "enum": ["memory", "file"],
+        "description": "Storage backend for audit logs",
+        "default": "memory"
+      },
+      "rateLimitEnabled": {
+        "type": "boolean",
+        "description": "Enable rate limiting for shell commands",
+        "default": true
+      },
+      "rateLimitWindowMs": {
+        "type": "integer",
+        "description": "Rate limit time window in milliseconds",
+        "default": 60000
+      },
+      "rateLimitMaxRequests": {
+        "type": "integer",
+        "description": "Maximum number of requests allowed per window",
+        "default": 30
+      },
+      "rateLimitPerChannel": {
+        "type": "boolean",
+        "description": "Apply rate limits per channel instead of per user globally",
+        "default": false
+      }
+    }
+  }
+}

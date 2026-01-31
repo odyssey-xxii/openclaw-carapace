@@ -1,0 +1,54 @@
+{
+  "id": "carapace-e2b-sandbox",
+  "kind": "sandbox",
+  "description": "E2B cloud sandbox execution for Carapace, providing isolated command execution in per-user sandboxes",
+  "version": "1.0.0",
+  "uiHints": {
+    "e2bApiKey": {
+      "label": "E2B API Key",
+      "sensitive": true,
+      "placeholder": "sk-e2b-...",
+      "help": "API key for E2B Sandbox (or use ${E2B_API_KEY})"
+    },
+    "enablePersistence": {
+      "label": "Enable Persistence",
+      "help": "Persist sandbox state to S3 between sessions"
+    },
+    "s3BucketName": {
+      "label": "S3 Bucket Name",
+      "placeholder": "my-sandbox-backups",
+      "help": "S3 bucket for sandbox snapshots (requires AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY)"
+    },
+    "idleTimeoutMinutes": {
+      "label": "Idle Timeout (minutes)",
+      "placeholder": "50",
+      "help": "Minutes before sandbox is paused due to inactivity (max 60 for E2B)"
+    }
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "e2bApiKey": {
+        "type": "string",
+        "description": "E2B API key for authentication"
+      },
+      "enablePersistence": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable S3-backed persistence"
+      },
+      "s3BucketName": {
+        "type": "string",
+        "description": "S3 bucket for storing sandbox snapshots"
+      },
+      "idleTimeoutMinutes": {
+        "type": "number",
+        "default": 50,
+        "minimum": 5,
+        "maximum": 60,
+        "description": "Idle timeout in minutes before auto-pause"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "carapace-channel-manager",
+  "name": "carapace-channel-manager",
+  "version": "0.1.0",
+  "type": "extension",
+  "description": "Multi-tenant channel manager utility for Carapace",
+  "entry": "index.ts",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

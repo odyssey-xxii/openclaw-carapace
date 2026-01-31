@@ -1,0 +1,31 @@
+{
+  "name": "@carapace/cron",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Scheduled tasks for Carapace agents",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "openclaw.plugin.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "openclaw": {
+    "extensions": [
+      "dist/index.js"
+    ]
+  },
+  "dependencies": {
+    "cron-parser": "^4.9.0"
+  },
+  "peerDependencies": {
+    "openclaw": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.9.3"
+  }
+}

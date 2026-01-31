@@ -1,0 +1,27 @@
+{
+  "name": "@carapace/channels",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Channel bridges for Carapace dashboard",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "openclaw.plugin.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ]
+  },
+  "peerDependencies": {
+    "openclaw": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

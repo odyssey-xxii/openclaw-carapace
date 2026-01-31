@@ -1,0 +1,17 @@
+{
+  "name": "@carapace/e2b-sandbox",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "E2B cloud sandbox integration for Carapace",
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "dependencies": {
+    "e2b": "^0.16.0"
+  },
+  "devDependencies": {
+    "openclaw": "*"
+  }
+}

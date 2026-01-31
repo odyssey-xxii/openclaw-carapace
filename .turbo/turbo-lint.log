@@ -1,0 +1,7 @@
+npm warn config ignoring workspace config at /Users/yaya/Development/carapace-os/packages/openclaw-carapace/.npmrc
+
+> openclaw@2026.1.29 lint
+> oxlint --type-aware src test
+
+Found 0 warnings and 0 errors.
+Finished in 2.0s on 2519 files with 104 rules using 14 threads.

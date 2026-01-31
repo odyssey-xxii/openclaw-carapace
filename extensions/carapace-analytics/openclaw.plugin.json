@@ -1,0 +1,28 @@
+{
+  "id": "carapace-analytics",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enableS3": {
+        "type": "boolean",
+        "default": false,
+        "description": "Store metrics in S3"
+      },
+      "s3Bucket": {
+        "type": "string",
+        "description": "S3 bucket for analytics storage"
+      },
+      "s3Region": {
+        "type": "string",
+        "default": "us-east-1",
+        "description": "AWS region"
+      },
+      "retentionDays": {
+        "type": "number",
+        "default": 90,
+        "description": "Metrics retention period in days"
+      }
+    }
+  }
+}
